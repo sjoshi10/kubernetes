@@ -36,4 +36,4 @@ preferredDuringSchedulingIgnoredDuringExecution
 requiredDuringSchedulingRequiredDuringExecution
 ```
 
-You can see the operator In being used in the example. The new node affinity syntax supports the following operators: In, NotIn, Exists, DoesNotExist, Gt, Lt. You can use NotIn and DoesNotExist to achieve node anti-affinity behavior, or use node taints to repel pods from specific nodes.
+You can see the operator In being used in the example. The new node affinity syntax supports the following operators: `In, NotIn, Exists, DoesNotExist, Gt, Lt`. You can use NotIn and DoesNotExist to achieve node anti-affinity behavior, or use node taints to repel pods from specific nodes.
