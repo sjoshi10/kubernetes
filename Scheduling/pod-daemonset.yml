@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+  name: myreplicaset
+  labels:
+     app: my-app
+     type: front-end
+
+spec:
+  template:
+    metadata:
+      name: my-app-pod
+      labels:
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+      - name: mycontainer
+        image: nginx
+  selector:
+    matchLabels:
+      type: frontend
