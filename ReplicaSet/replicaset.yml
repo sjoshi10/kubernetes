@@ -17,8 +17,6 @@ spec:
       containers:
       - name: mycontainer
         image: nginx
-      nodeSelector:
-        env: dev
   replicas: 6
   selector:
     matchLabels:
