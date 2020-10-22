@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mypod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+  tolerations:
+    - key: "app"
+      operator: "Equal"
+      value: "frontend"
+      effect: "NoSchedule"
