@@ -1,0 +1,14 @@
+apiVersion: certificates.k8s.io/v1beta1
+kind: CertificateSigningRequest
+metadata: 
+  name: my-csr
+spec:
+  groups:
+  - system:authenticated
+  - system:masters
+  usages: 
+  - digital signatures
+  - signing request
+  - server auth
+  request:
+    <base64 of CSR>
