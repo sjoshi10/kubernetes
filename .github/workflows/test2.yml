@@ -43,15 +43,17 @@ jobs:
           git branch
   test:
     # The type of runner that the job will run on
-    if: jobs.build.steps.test.outputs.test  == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: Pod
+    strategy:
+      matrix:
+        node: ["bsc","matic","optimism"]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo ::set-output name=test::"true"
+        run: echo ${{ matrix.node }}
