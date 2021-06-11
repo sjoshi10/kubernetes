@@ -43,7 +43,7 @@ jobs:
           git branch
   test:
     # The type of runner that the job will run on
-    if: steps.test.outputs.test  == 'true'
+    if: needs.build.steps.test.outputs.test  == 'true'
     needs: build
     runs-on: ubuntu-latest
     defaults:
