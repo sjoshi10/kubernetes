@@ -16,6 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  id: script
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -43,7 +44,7 @@ jobs:
           git branch
   test:
     # The type of runner that the job will run on
-    if: steps.test.outputs.test  == 'true'
+    if: jobs.script.steps.test.outputs.test  == 'true'
     runs-on: ubuntu-latest
     defaults:
       run:
