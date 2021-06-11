@@ -22,8 +22,6 @@ jobs:
     defaults:
       run:
         working-directory: Pod
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -43,4 +41,17 @@ jobs:
           git status 
           git remote -v 
           git branch
-      
+  test:
+    # The type of runner that the job will run on
+    if: steps.test.outputs.test  == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Pod
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo ::set-output name=test::"true"
